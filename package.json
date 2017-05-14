@@ -1,0 +1,26 @@
+{
+  "name": "automate-todo-mvc",
+  "version": "1.0.0",
+  "description": "Tests for todomvc.com/examples/ember.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "wdio wdio.conf.js",
+    "setup": " npm install && node_modules/.bin/selenium-standalone install"
+  },
+  "author": "Kunwardeep Singh Bedi",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "6.24.1",
+    "bluebird": "3.5.0",
+    "chai": "3.5.0",
+    "chai-as-promised": "6.0.0",
+    "es6-promise": "4.1.0",
+    "eslint": "3.19.0",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-mocha": "4.8.0",
+    "selenium-standalone": "6.4.1",
+    "wdio-mocha-framework": "0.5.10",
+    "wdio-spec-reporter": "0.1.0",
+    "webdriverio": "4.8.0"
+  }
+}

@@ -19,12 +19,12 @@ exports.config = {
   reporters: ['spec'],
   specs: ['./tests/*.test.js'],
   capabilities: [
-    // {
-    //   browserName: 'chrome',
-    //   chromeOptions: {
-    //     args: ['no-sandbox', 'disable-web-security']
-    //   }
-    // },
+    {
+      browserName: 'chrome',
+      chromeOptions: {
+        args: ['no-sandbox', 'disable-web-security']
+      }
+    },
     {
       browserName: 'firefox'
     }

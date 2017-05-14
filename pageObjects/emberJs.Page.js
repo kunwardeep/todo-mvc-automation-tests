@@ -69,6 +69,7 @@ module.exports = function HomePage() {
                                           const selectorId = todos[todoNum - 1].value;
                                           const viewableSelector = `#${selectorId}`;
                                           const clickSelector = `#${selectorId}${closeIconTag}`;
-                                          return browser.moveToObject(viewableSelector).pause(500).click(clickSelector).pause(500);
+                                          return browserHelper.simulateMouseMove(viewableSelector).pause(500).click(clickSelector).pause(500);
+                                        //  return browser.moveToObject(viewableSelector).pause(500).click(clickSelector).pause(500);
                                         });
 };

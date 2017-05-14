@@ -49,4 +49,13 @@ module.exports = function BrowserHelper() {
       return cb.dispatchEvent(evt);
     }, selector);
   };
+
+  this.simulateMouseMove = function(selector) {
+    return browser.execute(function(selectorStr) {
+      const evObj = document.createEvent('Events');
+      evObj.initEvent('mousemove', true, false);
+      const cb = document.querySelector(selectorStr);
+      return cb.dispatchEvent(evObj);
+    }, selector);
+  };
 };

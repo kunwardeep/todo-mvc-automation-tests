@@ -24,10 +24,10 @@ exports.config = {
       chromeOptions: {
         args: ['no-sandbox', 'disable-web-security']
       }
-    },
-    {
-      browserName: 'firefox'
     }
+    // {
+    //   browserName: 'firefox'
+    // }
   ],
   mochaOpts: {
     timeout: 40000,

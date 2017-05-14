@@ -17,19 +17,17 @@ exports.config = {
   logLevel: 'silent',
   coloredLogs: true,
   reporters: ['spec'],
-  maxInstances: 10,
   specs: ['./tests/*.test.js'],
   capabilities: [
-    {
-      maxInstances: 5,
-      browserName: 'chrome',
-      chromeOptions: {
-        args: ['no-sandbox', 'disable-web-security']
-      }
-    }
     // {
-    //   browserName: 'firefox'
-    // }
+    //   browserName: 'chrome',
+    //   chromeOptions: {
+    //     args: ['no-sandbox', 'disable-web-security']
+    //   }
+    // },
+    {
+      browserName: 'firefox'
+    }
   ],
   mochaOpts: {
     timeout: 40000,

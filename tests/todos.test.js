@@ -50,7 +50,7 @@ describe('Todos-', () => {
     });
   });
 
-  describe('I want to edit the content of an existing Todo item', () => {
+  describe.only('I want to edit the content of an existing Todo item', () => {
     const listOfPreExistingTodos = [{ id: 1, title: 'Todo 01', completed: false }];
     const editedText = 'Todo Edited';
     const expectedLocalStorageValue = [{ id: 1, title: editedText, completed: false }];
@@ -66,7 +66,7 @@ describe('Todos-', () => {
         .then(todos => (expect(todos.length).to.equal(1)));
     });
 
-    it('Should match the added todo value', () => {
+    it('Should match the edited todo value', () => {
       return emberJsPage.getNamesOfTodosInTheList()()
       .then(todos => (expect(todos[0]).to.equal(editedText)));
     });

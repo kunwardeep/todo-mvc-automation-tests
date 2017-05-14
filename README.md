@@ -20,3 +20,22 @@ npm run setup
 ```shell
 npm run test
 ```
+
+## Issues
+Tests currently not working
+  On firefox -
+
+    Scenario - I want to edit the content of an existing Todo item
+          Test - Should match the edited todo value
+
+          It is editing the text but for some strange reason the library is not able to send the enter keys. Under investigation.
+
+    Scenario - I can clear a single Todo item from the list completely by clicking the Close icon
+        The scenario is failing as to there is no implementation in firefox for the moveToObject command. Looking for alternate solution.
+
+Genuine failures.
+
+    Scenario - I want to edit the content of an existing Todo item
+          Test - Should update localStorage
+
+          The app itself is not updating the local storage.

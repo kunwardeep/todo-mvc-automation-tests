@@ -31,7 +31,7 @@ Tests currently not working
           It is editing the text but for some strange reason the library is not able to send the enter keys. Under investigation.- 
 
     Scenario - I can clear a single Todo item from the list completely by clicking the Close icon
-        The scenario is failing as to there is no implementation in firefox for the moveToObject command. Looking for alternate solution.- https://github.com/mozilla/geckodriver/issues/159
+        The scenario is failing(https://github.com/mozilla/geckodriver/issues/159) as to there is no implementation in firefox for the moveToObject command. Looking for alternate solution.- 
 
 Genuine failures.
 

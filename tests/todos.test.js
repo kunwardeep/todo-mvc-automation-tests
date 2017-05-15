@@ -190,7 +190,7 @@ describe('Todos-', () => {
     });
   });
 
-  describe.only('I can clear a single Todo item from the list completely by clicking the Close icon', () => {
+  describe('I can clear a single Todo item from the list completely by clicking the Close icon', () => {
     const listOfPreExistingTodos = [{ id: 1, title: 'Todo 01', completed: false },
                                     { id: 2, title: 'Todo 02', completed: false },
                                     { id: 3, title: 'Todo 03', completed: false }];

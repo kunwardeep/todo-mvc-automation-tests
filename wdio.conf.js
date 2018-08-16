@@ -1,22 +1,14 @@
-const Promise = require('es6-promise').Promise;
-const selenium = require('selenium-standalone');
-
-const startSeleniumServer = () => {
-  return new Promise((resolve, reject) => {
-    selenium.start((err, process) => err ? reject(err) : resolve(process));
-  });
-};
-
-let seleniumProcess;
-
 exports.config = {
+  host: 'selenium-hub',
+  port: 4444,
+  path: '/wd/hub',
   baseUrl: 'http://todomvc.com',
   framework: 'mocha',
   sync: false,
   waitforTimeout: 60000,
-  logLevel: 'silent',
+  logLevel: 'error',
   coloredLogs: true,
-  reporters: ['spec'],
+  reporters: ['dot', 'spec'],
   specs: ['./tests/*.test.js'],
   capabilities: [
     {
@@ -32,15 +24,5 @@ exports.config = {
   mochaOpts: {
     timeout: 40000,
     compilers: ['js:babel-core/register']
-  },
-  onPrepare: () => {
-    return startSeleniumServer()
-      .then(process => {
-        seleniumProcess = process;
-      });
-  },
-  onComplete: () => {
-    console.log('Shutting down Selenium');
-    seleniumProcess.kill();
   }
 };

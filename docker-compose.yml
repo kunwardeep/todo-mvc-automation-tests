@@ -1,0 +1,44 @@
+version: '3.3'
+services:
+
+  selenium-hub:
+    image: selenium/hub:3.12
+    volumes:
+      - /dev/shm:/dev/shm
+
+  chrome:
+    image: selenium/node-chrome-debug:3.12
+    # ports:
+    #   - "5900:5900"
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+      - DEBUG=1
+      - VNC_NO_PASSWORD=1
+      - SCREEN_WIDTH=1920
+      - SCREEN_HEIGHT=1080
+
+  firefox:
+    image: selenium/node-firefox-debug:3.12
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+      - DEBUG=1
+      - VNC_NO_PASSWORD=1
+      - SCREEN_WIDTH=1920
+      - SCREEN_HEIGHT=1080
+
+  test:
+    build: .
+    depends_on:
+      - selenium-hub
+      - chrome
+      - firefox

@@ -51,6 +51,7 @@ module.exports = function BrowserHelper() {
   };
 
   this.simulateMouseMove = function(selector) {
+    // return browser.moveToObject(selector)
     return browser.execute(function(selectorStr) {
       const evObj = document.createEvent('Events');
       evObj.initEvent('mousemove', true, false);

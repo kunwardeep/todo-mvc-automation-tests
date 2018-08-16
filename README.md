@@ -11,9 +11,15 @@
 8. I can clear a single Todo item from the list completely by clicking the Close icon
 9. I can clear all completed Todo items from the list completely
 
-## Running the tests
+## Running the tests in docker
 ```
 bin/ci_test.sh
+```
+
+## Running the tests locally
+```
+npm run setup
+LOCAL=true npm run test
 ```
 
 ## Issues

@@ -15,9 +15,9 @@ module.exports = function BrowserHelper() {
 
   this.isElementVisible = function(locator) {
     return browser.waitForExist(locator, 8000)
-          .then(function() {
-            return browser.isVisible(locator);
-          });
+      .then(function() {
+        return browser.isVisible(locator);
+      });
   };
 
   this.clearLocalStorage = function() {

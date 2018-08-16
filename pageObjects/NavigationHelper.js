@@ -7,21 +7,21 @@ const emberJsPage = new EmberJsPage();
 
 module.exports = function NavigationHelper() {
   this.openHomePageAndClearLocalStorage = () => homePage.open()
-                                                .then(() => browserHelper.clearLocalStorage());
+    .then(() => browserHelper.clearLocalStorage());
 
   this.goToEmberJsApp = () => homePage.goToEmberJsApp()()
-                              .then(() => emberJsPage.isLoaded())
-                              .then(isLoaded => {
-                                if (!isLoaded) {
-                                  throw new Error('Failed to load the EmberJs App');
-                                }
-                                return true;
-                              });
+    .then(() => emberJsPage.isLoaded())
+    .then(isLoaded => {
+      if (!isLoaded) {
+        throw new Error('Failed to load the EmberJs App');
+      }
+      return true;
+    });
 
   this.openHomePageAndNaviagteToEmberJsApp = () => this.openHomePageAndClearLocalStorage()
-                                                    .then(() => (this.goToEmberJsApp()));
+    .then(() => (this.goToEmberJsApp()));
 
   this.openHomePageAndNaviagteToEmberJsAppWithAddedTodos = todos => this.openHomePageAndClearLocalStorage()
-                                                                    .then(() => browserHelper.addLocalStorage(todos))
-                                                                    .then(() => this.goToEmberJsApp());
+    .then(() => browserHelper.addLocalStorage(todos))
+    .then(() => this.goToEmberJsApp());
 };

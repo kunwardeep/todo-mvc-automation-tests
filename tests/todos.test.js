@@ -15,12 +15,12 @@ describe('Todos-', () => {
 
     before(() => {
       return navigate.openHomePageAndNaviagteToEmberJsApp()
-            .then(emberJsPage.addTodo(todo));
+        .then(emberJsPage.addTodo(todo));
     });
 
     it('Should match the added todo value', () => {
       return emberJsPage.getNamesOfTodosInTheList()()
-      .then(todos => (expect(todos[0]).to.equal(todo)));
+        .then(todos => (expect(todos[0]).to.equal(todo)));
     });
 
     it('Should update localStorage ', () => {
@@ -36,13 +36,13 @@ describe('Todos-', () => {
 
     before(() => {
       return navigate.openHomePageAndNaviagteToEmberJsApp()
-            .then(emberJsPage.addTodo(todo1))
-            .then(emberJsPage.addTodo(todo2));
+        .then(emberJsPage.addTodo(todo1))
+        .then(emberJsPage.addTodo(todo2));
     });
 
     it('Should match the added todo value', () => {
       return emberJsPage.getNamesOfTodosInTheList()()
-      .then(todos => (expect(todos).to.deep.equal([todo1, todo2])));
+        .then(todos => (expect(todos).to.deep.equal([todo1, todo2])));
     });
 
     it('Should update localStorage and the id should be in sequence', () => {
@@ -58,7 +58,7 @@ describe('Todos-', () => {
 
     before(() => {
       return navigate.openHomePageAndNaviagteToEmberJsAppWithAddedTodos(listOfPreExistingTodos)
-              .then(emberJsPage.editTodo(firstTodo, editedText));
+        .then(emberJsPage.editTodo(firstTodo, editedText));
     });
 
     it('Should match the number of todos in the lists', () => {
@@ -68,7 +68,7 @@ describe('Todos-', () => {
 
     it('Should match the edited todo value', () => {
       return emberJsPage.getNamesOfTodosInTheList()()
-      .then(todos => (expect(todos[0]).to.equal(editedText)));
+        .then(todos => (expect(todos[0]).to.equal(editedText)));
     });
 
     // This test finds the bug.Local storage is not being updated
@@ -84,7 +84,7 @@ describe('Todos-', () => {
 
     before(() => {
       return navigate.openHomePageAndNaviagteToEmberJsAppWithAddedTodos(listOfPreExistingTodos)
-              .then(emberJsPage.clickComplete(firstTodo));
+        .then(emberJsPage.clickComplete(firstTodo));
     });
 
     it('Should mark the todo as completed', () => {
@@ -103,7 +103,7 @@ describe('Todos-', () => {
 
     before(() => {
       return navigate.openHomePageAndNaviagteToEmberJsAppWithAddedTodos(listOfPreExistingTodos)
-              .then(emberJsPage.clickComplete(firstTodo));
+        .then(emberJsPage.clickComplete(firstTodo));
     });
 
     it('Should mark the todo as incomplete', () => {
@@ -126,7 +126,7 @@ describe('Todos-', () => {
 
     before(() => {
       return navigate.openHomePageAndNaviagteToEmberJsAppWithAddedTodos(listOfPreExistingTodos)
-            .then(emberJsPage.addTodo(todo02));
+        .then(emberJsPage.addTodo(todo02));
     });
 
     it('Should match the added todos value', () => {
@@ -141,14 +141,14 @@ describe('Todos-', () => {
 
   describe('I can complete all active Todos by clicking the down arrow at the top-left of the UI', () => {
     const listOfPreExistingTodos = [{ id: 1, title: 'Todo 01', completed: false },
-                                    { id: 2, title: 'Todo 02', completed: false },
-                                    { id: 3, title: 'Todo 03', completed: false }];
+      { id: 2, title: 'Todo 02', completed: false },
+      { id: 3, title: 'Todo 03', completed: false }];
     const expectedLocalStorageValue = [{ id: 1, title: 'Todo 01', completed: true },
-                                    { id: 2, title: 'Todo 02', completed: true },
-                                    { id: 3, title: 'Todo 03', completed: true }];
+      { id: 2, title: 'Todo 02', completed: true },
+      { id: 3, title: 'Todo 03', completed: true }];
     before(() => {
       return navigate.openHomePageAndNaviagteToEmberJsAppWithAddedTodos(listOfPreExistingTodos)
-              .then(emberJsPage.clickAllComplete());
+        .then(emberJsPage.clickAllComplete());
     });
 
     it('Should mark the todo item  1 as completed', () => {
@@ -170,19 +170,19 @@ describe('Todos-', () => {
 
   describe('I can filter the visible Todos by Completed state', () => {
     const listOfPreExistingTodos = [{ id: 1, title: 'Todo 01', completed: true },
-                                    { id: 2, title: 'Todo 02', completed: false },
-                                    { id: 3, title: 'Todo 03', completed: true }];
+      { id: 2, title: 'Todo 02', completed: false },
+      { id: 3, title: 'Todo 03', completed: true }];
 
     const expectedValue = ['Todo 01', 'Todo 03'];
 
     before(() => {
       return navigate.openHomePageAndNaviagteToEmberJsAppWithAddedTodos(listOfPreExistingTodos)
-              .then(emberJsPage.clickCompleted());
+        .then(emberJsPage.clickCompleted());
     });
 
     it('Should match the completed todos value', () => {
       return emberJsPage.getNamesOfTodosInTheList()()
-      .then(todos => (expect(todos).to.deep.equal(expectedValue)));
+        .then(todos => (expect(todos).to.deep.equal(expectedValue)));
     });
 
     it('Should not change localStorage', () => {
@@ -192,21 +192,21 @@ describe('Todos-', () => {
 
   describe('I can clear a single Todo item from the list completely by clicking the Close icon', () => {
     const listOfPreExistingTodos = [{ id: 1, title: 'Todo 01', completed: false },
-                                    { id: 2, title: 'Todo 02', completed: false },
-                                    { id: 3, title: 'Todo 03', completed: false }];
+      { id: 2, title: 'Todo 02', completed: false },
+      { id: 3, title: 'Todo 03', completed: false }];
     const expectedValue = ['Todo 02', 'Todo 03'];
     const expectedLocalStorageValue = [{ id: 2, title: 'Todo 02', completed: false },
-                                       { id: 3, title: 'Todo 03', completed: false }];
+      { id: 3, title: 'Todo 03', completed: false }];
     const firstTodo = 1;
 
     before(() => {
       return navigate.openHomePageAndNaviagteToEmberJsAppWithAddedTodos(listOfPreExistingTodos)
-              .then(emberJsPage.clickCloseIcon(firstTodo));
+        .then(emberJsPage.clickCloseIcon(firstTodo));
     });
 
     it('Should match the undeleted todos value', () => {
       return emberJsPage.getNamesOfTodosInTheList()()
-      .then(todos => (expect(todos).to.deep.equal(expectedValue)));
+        .then(todos => (expect(todos).to.deep.equal(expectedValue)));
     });
 
     it('Should change localStorage', () => {
@@ -216,22 +216,22 @@ describe('Todos-', () => {
 
   describe('I can clear all completed Todo items from the list completely', () => {
     const listOfPreExistingTodos = [{ id: 1, title: 'Todo 01', completed: false },
-                                    { id: 2, title: 'Todo 02', completed: true },
-                                    { id: 3, title: 'Todo 03', completed: true },
-                                    { id: 4, title: 'Todo 04', completed: false },
-                                    { id: 5, title: 'Todo 05', completed: false }];
+      { id: 2, title: 'Todo 02', completed: true },
+      { id: 3, title: 'Todo 03', completed: true },
+      { id: 4, title: 'Todo 04', completed: false },
+      { id: 5, title: 'Todo 05', completed: false }];
     const expectedValue = ['Todo 01', 'Todo 04', 'Todo 05'];
     const expectedLocalStorageValue = [{ id: 1, title: 'Todo 01', completed: false },
-                                    { id: 4, title: 'Todo 04', completed: false },
-                                    { id: 5, title: 'Todo 05', completed: false }];
+      { id: 4, title: 'Todo 04', completed: false },
+      { id: 5, title: 'Todo 05', completed: false }];
     before(() => {
       return navigate.openHomePageAndNaviagteToEmberJsAppWithAddedTodos(listOfPreExistingTodos)
-              .then(emberJsPage.clickClearCompleted());
+        .then(emberJsPage.clickClearCompleted());
     });
 
     it('Should match the uncleared todos value', () => {
       return emberJsPage.getNamesOfTodosInTheList()()
-      .then(todos => (expect(todos).to.deep.equal(expectedValue)));
+        .then(todos => (expect(todos).to.deep.equal(expectedValue)));
     });
 
     it('Should change localStorage', () => {

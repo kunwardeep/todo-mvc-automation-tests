@@ -4,7 +4,7 @@
   "description": "Tests for todomvc.com/examples/ember.js",
   "scripts": {
     "test": "wdio wdio.conf.js",
-    "setup": " npm install && node_modules/.bin/selenium-standalone install"
+    "setup": " npm install"
   },
   "author": "Kunwardeep Singh Bedi",
   "license": "MIT",
@@ -17,7 +17,6 @@
     "eslint": "^5.3.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-mocha": "^5.2.0",
-    "selenium-standalone": "^6.15.1",
     "wdio-mocha-framework": "^0.6.2",
     "wdio-spec-reporter": "^0.1.5",
     "webdriverio": "^4.13.1"
